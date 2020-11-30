@@ -1,53 +1,21 @@
 {
-  "name": "webserver",
+  "name": "Unity Render Streaming Web App",
   "version": "2.1.0",
   "private": true,
   "scripts": {
     "prestart": "npm install",
-    "build": "tsc -p ../UnityRenderStreamingAPI/tsconfig.json",
-    "test": "jest --env=node --colors --coverage ../UnityRenderStreamingAPI/test",
-    "newman": "newman run ../UnityRenderStreamingAPI/test/renderstreaming.postman_collection.json",
-    "start": "node ../UnityRenderStreamingAPI/api/index.js",
-    "prod:build": "netlify-lambda build server",
-    "dev": "ts-node ../UnityRenderStreamingAPI/src/index.ts",
-    "lint": "eslint ../UnityRenderStreamingAPI/src/**/*.ts test/**/*.ts",
-    "pack": "pkg .",
-    "dev:styles": "npx tailwindcss-cli@latest build ./public/stylesheets/style.css -o ./public/stylesheets/tailwind.css",
-    "prod:styles": "NODE_ENV=production npx tailwindcss-cli@latest build ./public/stylesheets/style.css -o ./public/stylesheets/tailwind.css"
+    "build:dev": "npx tailwindcss-cli@latest build ./public/stylesheets/style.css -o ./public/stylesheets/tailwind.css",
+    "build:prod": "NODE_ENV=production npx tailwindcss-cli@latest build ./public/stylesheets/style.css -o ./public/stylesheets/tailwind.css"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.3.1",
-    "@types/express": "^4.16.1",
-    "@types/node": "^11.12.0",
-    "@types/ws": "^7.2.2",
     "autoprefixer": "^10.0.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "netlify-lambda": "^2.0.1",
     "postcss": "^8.1.10",
     "tailwindcss": "^2.0.1",
     "uuid": "^3.4.0",
     "ws": "^7.2.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.12",
-    "@typescript-eslint/eslint-plugin": "^2.3.3",
-    "@typescript-eslint/parser": "^2.3.3",
-    "eslint": "^6.5.1",
-    "jest": "^24.8.0",
-    "newman": "^4.5.5",
-    "pkg": "^4.4.0",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.3.4000"
-  },
-  "bin": "build/index.js",
-  "pkg": {
-    "assets": [
-      "public/**/*"
-    ],
-    "targets": [
-      "node10"
-    ]
+    "eslint": "^6.5.1"
   }
 }
