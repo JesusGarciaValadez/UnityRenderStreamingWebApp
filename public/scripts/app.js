@@ -31,6 +31,7 @@ function onClickPlayButton() {
   playButton.style.display = 'none';
 
   const playerDiv = document.getElementById('player');
+  playerDiv.classList = 'h-full rounded-lg player active';
 
   // add video player
   const elementVideo = document.createElement('video');
@@ -46,11 +47,16 @@ function onClickPlayButton() {
 
   setupVideoPlayer([elementVideo, elementVideoThumb]).then(value => videoPlayer = value);
 
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.id = 'buttonsContainer';
+  playerDiv.appendChild(buttonsContainer);
+  const buttons = document.querySelector('#buttonsContainer');
+
   // add green button
   const elementBlueButton = document.createElement('button');
   elementBlueButton.id = "blueButton";
   elementBlueButton.innerHTML = "Light on";
-  playerDiv.appendChild(elementBlueButton);
+  buttons.appendChild(elementBlueButton);
   elementBlueButton.addEventListener ("click", function() {
     sendClickEvent(videoPlayer, 1);
   });
@@ -59,7 +65,7 @@ function onClickPlayButton() {
   const elementGreenButton = document.createElement('button');
   elementGreenButton.id = "greenButton";
   elementGreenButton.innerHTML = "Light off";
-  playerDiv.appendChild(elementGreenButton);
+  buttons.appendChild(elementGreenButton);
   elementGreenButton.addEventListener ("click", function() {
     sendClickEvent(videoPlayer, 2);
   });
@@ -68,7 +74,7 @@ function onClickPlayButton() {
   const elementOrangeButton = document.createElement('button');
   elementOrangeButton.id = "orangeButton";
   elementOrangeButton.innerHTML = "Play audio";
-  playerDiv.appendChild(elementOrangeButton);
+  buttons.appendChild(elementOrangeButton);
   elementOrangeButton.addEventListener ("click", function() {
     sendClickEvent(videoPlayer, 3);
   });
@@ -109,7 +115,7 @@ async function setupVideoPlayer(elements, config) {
   registerGamepadEvents(videoPlayer);
   registerKeyboardEvents(videoPlayer);
   registerMouseEvents(videoPlayer, elements[0]);
-  
+
   return videoPlayer;
 }
 

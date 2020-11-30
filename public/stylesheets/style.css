@@ -1,21 +1,17 @@
-body{
-  margin: 0px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #player{
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  background-color: #323232;
+    @apply items-center flex justify-center relative bg-gray-600;
+}
+
+.player.active {
+    @apply items-end;
 }
 
 #playButton{
-  width: 15%;
+  width: 10%;
   max-width: 200px;
   cursor: pointer;
 }
@@ -36,48 +32,20 @@ body{
   height: 30%;
 }
 
-#greenButton{
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    width: 160px;
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+#buttonsContainer {
+    @apply w-full flex flex-row justify-around self-end mb-3.5;
 }
+
+#greenButton{
+    @apply w-3/10 bg-green-500 border-none text-white py-4 px-8 text-center inline-block no-underline text-base max-w-150;
+}
+
 #blueButton{
-    position: absolute;
-    bottom: 10px;
-    left: 180px;
-    width: 160px;
-    background-color: #447FAF; /* Blue */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    @apply w-3/10 bg-blue-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base max-w-150;
 }
 
 #orangeButton{
-    position: absolute;
-    bottom: 10px;
-    left: 350px;
-    width: 160px;
-    background-color: #FF7700; /* Blue */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    @apply w-3/10 bg-red-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base max-w-150;
 }
 
 #fullscreenButton{
