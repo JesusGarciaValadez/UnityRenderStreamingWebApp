@@ -37,15 +37,15 @@
 }
 
 #greenButton{
-    @apply w-3/10 bg-green-500 border-none text-white py-4 px-8 text-center inline-block no-underline text-base max-w-150;
+    @apply w-3\/10 bg-green-500 border-none text-white py-4 px-8 text-center inline-block no-underline text-base max-w-150;
 }
 
 #blueButton{
-    @apply w-3/10 bg-blue-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base max-w-150;
+    @apply w-3\/10 bg-blue-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base max-w-150;
 }
 
 #orangeButton{
-    @apply w-3/10 bg-red-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base max-w-150;
+    @apply w-3\/10 bg-red-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base max-w-150;
 }
 
 #fullscreenButton{
