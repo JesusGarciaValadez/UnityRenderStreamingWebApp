@@ -1,6 +1,6 @@
 # UnityRenderStreamingWebApp
 
-This web app it's for receive the transmition of a (unity app)[https://github.com/JesusGarciaValadez/RenderStreamingHDRP/tree/main/RenderStreamingHDRP/Build/RenderStreamingHDRP.app/Contents] through WebRTC signal.
+This web app it's for receive the transmition of a (Unity Render Streaming app)[https://github.com/JesusGarciaValadez/UnityRenderStreaming] through WebRTC signal.
 
 # Install packages
 
