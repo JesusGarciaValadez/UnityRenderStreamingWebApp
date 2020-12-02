@@ -16,7 +16,7 @@ export default class Signaling extends EventTarget {
   };
 
   url(method) {
-    return location.protocol + '//' + location.host + location.pathname + 'signaling/' + method;
+    return `https://unity-render-streaming-api-3mhma.ondigitalocean.app/signaling/${method}`;
   };
 
   async start() {
