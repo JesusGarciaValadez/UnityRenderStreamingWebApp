@@ -1,5 +1,4 @@
 import { VideoPlayer } from "./video-player.js";
-import { registerGamepadEvents, registerKeyboardEvents, registerMouseEvents, sendClickEvent } from "./register-events.js";
 
 let playButton;
 let videoPlayer;
@@ -45,39 +44,9 @@ function onClickPlayButton() {
   elementVideoThumb.style.touchAction = 'none';
   playerDiv.appendChild(elementVideoThumb);
 
-  setupVideoPlayer([elementVideo, elementVideoThumb]).then(value => videoPlayer = value);
-
-  const buttonsContainer = document.createElement('div');
-  buttonsContainer.id = 'buttonsContainer';
-  playerDiv.appendChild(buttonsContainer);
-  const buttons = document.querySelector('#buttonsContainer');
-
-  // add green button
-  const elementBlueButton = document.createElement('button');
-  elementBlueButton.id = "blueButton";
-  elementBlueButton.innerHTML = "Light on";
-  buttons.appendChild(elementBlueButton);
-  elementBlueButton.addEventListener ("click", function() {
-    sendClickEvent(videoPlayer, 1);
-  });
-
-  // add green button
-  const elementGreenButton = document.createElement('button');
-  elementGreenButton.id = "greenButton";
-  elementGreenButton.innerHTML = "Light off";
-  buttons.appendChild(elementGreenButton);
-  elementGreenButton.addEventListener ("click", function() {
-    sendClickEvent(videoPlayer, 2);
-  });
-
-  // add orange button
-  const elementOrangeButton = document.createElement('button');
-  elementOrangeButton.id = "orangeButton";
-  elementOrangeButton.innerHTML = "Play audio";
-  buttons.appendChild(elementOrangeButton);
-  elementOrangeButton.addEventListener ("click", function() {
-    sendClickEvent(videoPlayer, 3);
-  });
+  setupVideoPlayer([elementVideo, elementVideoThumb])
+      .then(value => videoPlayer = value)
+      .catch(error => console.log(error));
 
   // add fullscreen button
   const elementFullscreenButton = document.createElement('img');
@@ -112,9 +81,6 @@ async function setupVideoPlayer(elements, config) {
   await videoPlayer.setupConnection();
 
   videoPlayer.ondisconnect = onDisconnect;
-  registerGamepadEvents(videoPlayer);
-  registerKeyboardEvents(videoPlayer);
-  registerMouseEvents(videoPlayer, elements[0]);
 
   return videoPlayer;
 }

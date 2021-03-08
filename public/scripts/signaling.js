@@ -16,7 +16,7 @@ export default class Signaling extends EventTarget {
   };
 
   url(method) {
-    return `https://unity-render-streaming-api-3mhma.ondigitalocean.app/signaling/${method}`;
+    return `http://127.0.0.1:8081/${method}`;
   };
 
   async start() {
@@ -156,14 +156,15 @@ export class WebSocketSignaling extends EventTarget {
     }
 
     this.websocket.onmessage = (event) => {
-      const msg = JSON.parse(event.data);
+      console.log(event)
+      const msg = event.data;
       if (!msg || !this) {
         return;
       }
 
       console.log(msg);
 
-      switch (msg.type) {
+      switch (msg) {
         case "connect":
           this.connectionId = msg.connectionId;
           break;

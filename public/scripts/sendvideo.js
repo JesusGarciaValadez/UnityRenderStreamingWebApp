@@ -35,7 +35,7 @@ export class SendVideo {
 
         this.remoteStram.onaddtrack = async (e) => await _this.remoteVideo.play();
 
-        const protocolEndPoint = 'https://unity-render-streaming-api-3mhma.ondigitalocean.app/protocol';
+        const protocolEndPoint = 'http://127.0.0.1:8081/';
         const createResponse = await fetch(protocolEndPoint);
         const res = await createResponse.json();
 

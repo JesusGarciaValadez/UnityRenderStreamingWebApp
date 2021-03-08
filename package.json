@@ -5,7 +5,8 @@
   "scripts": {
     "prestart": "npm install",
     "build:dev": "npx tailwindcss-cli@latest build ./public/stylesheets/style.css -o ./public/stylesheets/tailwind.css",
-    "build:prod": "NODE_ENV=production npx tailwindcss-cli@latest build ./public/stylesheets/style.css -o ./public/stylesheets/tailwind.css"
+    "build:prod": "NODE_ENV=production npx tailwindcss-cli@latest build ./public/stylesheets/style.css -o ./public/stylesheets/tailwind.css",
+    "ls": ""
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.3.1",
